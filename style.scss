@@ -26,6 +26,9 @@ $placeholder-color: #354652;
   @return $px / $base + 0em;
 }
 
+* {
+  font-family: Helvetica Neue;
+}
 body {
   background: $body;
   margin: 0;
@@ -53,7 +56,6 @@ body {
 
   &__right {
     a {
-      font-family: Helvetica Neue;
       color: $color3;
       text-decoration: none;
       display: flex;
@@ -78,11 +80,13 @@ body {
       background: $accent;
       border: pxToEm(1, 12) solid $color3;
       border-radius: 50%;
-      height: pxToEm(20, 12);
+      height: pxToEm(21, 12);
       width: pxToEm(21, 12);
       line-height: pxToEm(23, 12);
       text-align: center;
-      padding-top: pxToEm(1, 12);
+
+      font-size: pxToEm(10);
+      display: inline-block;
     }
 
     .vertical-line {
@@ -125,7 +129,7 @@ body {
       outline: none;
       background: rgba($color4, 0.95);
 
-      & + .main-menu__search-bar .search-icon {
+      & + .search-button .search-icon {
         stroke: rgb(79, 102, 117);
       }
     }
@@ -186,13 +190,34 @@ body {
       width: 100vw;
       height: 100vh;
       flex-direction: column;
+      justify-content: center;
 
       .text {
         display: initial;
+        text-align: justify;
+      }
+
+      .icon {
+        width: 40px;
+        text-align: center;
       }
 
       a {
         flex-direction: row;
+        width: 200px;
+        padding: 20px;
+        border-bottom: 1px solid rgba($color5, 0.6);
+      }
+      a:last-child {
+        border: 0;
+      }
+
+      a:hover {
+        background: rgb(0, 0, 0);
+      }
+
+      .vertical-line {
+        display: none;
       }
 
       &--open {
@@ -208,12 +233,56 @@ main {
   grid-template-columns: 217px 552px 311px;
   grid-gap: 24px;
   margin: auto;
+  padding-top: 24px;
 }
 
-main > div {
+.card {
   min-height: 100px;
   background: $color5;
 
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.post {
+  &__heading {
+    padding: 20px 17px 0;
+    display: grid;
+    grid-template-columns: 1fr 22px;
+  }
+
+  &__author {
+    font-size: 13px;
+    color: #707070;
+  }
+
+  &__author-image {
+    background: $color2;
+    margin-right: 12px;
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+
+  &__author-name {
+    color: #191919;
+    font-size: 14px;
+  }
+
+  &__created {
+    opacity: 0.1;
+  }
+
+  &__options {
+    margin-top: -8px;
+  }
+
+  &__content {
+    padding: 10px 17px;
+  }
+
+  &__image {
+    width: 100%;
+  }
 }
