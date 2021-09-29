@@ -1,3 +1,3 @@
-*.css
-*.map
+*style.css
+*.css.map
 .DS_Store
